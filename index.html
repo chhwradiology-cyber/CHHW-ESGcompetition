@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="衛生福利部彰化醫院放射診斷科永續發展與淨零競賽成果">
+  <title>從精實擺位到 AI 無界淨零｜彰化醫院放射診斷科</title>
+  <style>
+    :root {
+      --ink: #11312d;
+      --muted: #55726c;
+      --paper: #f7faf7;
+      --green: #16735d;
+      --lime: #d8f0df;
+      --gold: #eebf5a;
+      --line: #dbe6df;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* ── 導覽列 ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navin {
+      max-width: 1120px;
+      margin: auto;
+      padding: 13px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .brand {
+      font-weight: 800;
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .links {
+      display: flex;
+      gap: 18px;
+      font-size: .9rem;
+      white-space: nowrap;
+      overflow: auto;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background:
+        radial-gradient(circle at 77% 20%, #d9f3df 0, transparent 34%),
+        linear-gradient(135deg, #0d3c35, #176d59);
+      color: white;
+      padding: 88px 24px 70px;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: auto;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, .45);
+      border-radius: 99px;
+      padding: 4px 14px;
+      font-size: .84rem;
+      letter-spacing: .08em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 4.3rem);
+      line-height: 1.22;
+      margin: 23px 0 20px;
+      max-width: 870px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 740px;
+      color: #e3f6e9;
+    }
+
+    /* ── Lead 區塊 ── */
+    .lead {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: -38px;
+      padding: 0 24px;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 38px #12362d16;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    .panel h2,
+    section h2 {
+      line-height: 1.35;
+      margin-top: 0;
+    }
+
+    .statement {
+      font-size: 1.12rem;
+      margin: 0;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      background: var(--lime);
+      border-radius: 13px;
+      padding: 16px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.65rem;
+      line-height: 1.1;
+      color: var(--green);
+    }
+
+    /* ── Section 通用 ── */
+    section {
+      padding: 76px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section h2 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-weight: 800;
+      letter-spacing: .08em;
+      font-size: .84rem;
+    }
+
+    /* ── Grid / Card ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--green);
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .year {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .year:last-child {
+      border: 0;
+    }
+
+    .year b {
+      color: var(--green);
+      font-size: 1.12rem;
+    }
+
+    /* ── Flow ── */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .flow span {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: .9rem;
+    }
+
+    .flow i {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    /* ── Media / Figure ── */
+    .media {
+      margin: 28px 0 4px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      box-shadow: 0 10px 24px #12362d10;
+    }
+
+    .media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 9px;
+    }
+
+    .media figcaption {
+      padding: 9px 5px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .photo {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .photo img {
+      border-radius: 16px;
+    }
+
+    /* ── Charts ── */
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .charts .media {
+      margin: 0;
+    }
+
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      background: #eaf6ed;
+      color: var(--green);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    /* ── Notice / Quote ── */
+    .notice {
+      background: #fff6dd;
+      border-left: 5px solid var(--gold);
+      padding: 18px 21px;
+      border-radius: 6px;
+    }
+
+    .quote {
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: var(--green);
+      border-left: 5px solid var(--green);
+      padding-left: 20px;
+    }
+
+    /* ── Footer ── */
+    .foot {
+      background: #10332d;
+      color: #d9eee0;
+      padding: 40px 24px;
+      font-size: .9rem;
+    }
+
+    .foot p {
+      margin: 5px auto;
+      max-width: 1120px;
+    }
+
+    /* ── RWD ── */
+    @media (max-width: 720px) {
+      .links {
+        display: none;
+      }
+
+      .lead,
+      .grid,
+      .charts {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      .year {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .panel {
+        padding: 23px;
+      }
+
+      th,
+      td {
+        padding: 11px;
+        font-size: .9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="nav">
+    <div class="navin">
+      <a class="brand" href="#top">CHH・綠色放射影像</a>
+      <div class="links">
+        <a href="#results">成果數據</a>
+        <a href="#practice">創新實務</a>
+        <a href="#governance">治理與未來</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="tag">115 年永續發展與淨零競賽成果</span>
+      <h1>從精實擺位到 AI 無界淨零</h1>
+      <p>以跨五年（2022–2026）自製幾何輔具，降低骨科 X 光重照，讓放射影像照護流程走向低碳、精準與可持續治理。</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Lead：簡介 + 指標 -->
+    <div class="lead wrap">
+      <article class="panel">
+        <p class="eyebrow">衛生福利部彰化醫院・放射診斷科</p>
+        <h2>從臨床痛點開始，讓每一次曝光更有價值</h2>
+        <p class="statement">
+          針對肩胛骨 Y 型攝影與膝關節側位攝影的擺位變異，團隊以跨科共識、循環物料輔具、SOP
+          與數據追蹤，降低不必要的重照與病患負擔。
+        </p>
+      </article>
+      <aside class="panel metrics">
+        <div class="metric">
+          <strong>244 張</strong>
+          114 年減少的重照影像
+        </div>
+        <div class="metric">
+          <strong>195.2 kg</strong>
+          推估避免 CO₂e
+        </div>
+        <div class="metric">
+          <strong>0 元</strong>
+          新增輔具採購成本
+        </div>
+        <div class="metric">
+          <strong>62.26%</strong>
+          等候時程縮短幅度
+        </div>
+      </aside>
+    </div>
+
+    <!-- 成果數據 -->
+    <section id="results">
+      <div class="wrap">
+        <p class="eyebrow">IMPACT</p>
+        <h2>品質、病安與減碳的量化成果</h2>
+        <p>以 Excel 資料庫進行跨年度追蹤；依 114 年實際檢查量，將改善前後重照率差異轉譯為可管理的環境績效。</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>核心指標</th>
+              <th>改善前基準值</th>
+              <th>改善後實證值</th>
+              <th>綜合效益</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Knee Lat 重照率</td>
+              <td>8.2%</td>
+              <td>4.3%</td>
+              <td>低於 4.5% 目標；進步率 47.56%</td>
+            </tr>
+            <tr>
+              <td>Scapula Y-view 重照率</td>
+              <td>47.3%</td>
+              <td>12.8%</td>
+              <td>進步率 72.9%，持續以 SOP 與監測鞏固</td>
+            </tr>
+            <tr>
+              <td>單次檢查等候與服務時程</td>
+              <td>16.35 分鐘</td>
+              <td>6.17 分鐘</td>
+              <td>縮短 62.26%</td>
+            </tr>
+            <tr>
+              <td>重照改善與碳排效益</td>
+              <td>約 494 張重照</td>
+              <td>約 250 張重照</td>
+              <td>全年減少 244 張；推估避免 195.2 kg CO₂e</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="charts">
+          <figure class="media">
+            <img src="https://lh3.googleusercontent.com/d/1hRp5MOaTCn3jN9eGBLE_kF_LtDQiChxK" alt="Scapula Y-view 重照率由 47.3% 降至 12.8% 的圖表">
+            <figcaption>Scapula Y-view 重照率改善對比（114 年實證值）。</figcaption>
+          </figure>
+          <figure class="media">
+            <img src="https://lh3.googleusercontent.com/d/1jxlEWfa827GJ07VUakdlfdVmVXfbk3Ne" alt="Knee Lat 重照率由 8.2% 降至 4.3% 的圖表">
+            <figcaption>Knee Lat 重照率改善對比與 4.5% 目標值。</figcaption>
+          </figure>
+        </div>
+
+        <p class="notice">
+          碳排數值為避免排放推估：採一般 X 光代理係數 0.8 kg CO₂e／張，非本院設備獨立電表實測；
+          後續將以能耗紀錄進行本土化驗證。
+        </p>
+      </div>
+    </section>
+
+    <!-- 五年深耕 -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">FIVE-YEAR JOURNEY</p>
+        <h2>五年深耕，從品質改善走向數位擴散</h2>
+
+        <div class="timeline">
+          <div class="year">
+            <b>111 年｜2022</b>
+            <div>
+              <strong>奠基期：Scapula Y-view 流程優化</strong><br>
+              以 3D-CT 影像重組找出患側旋轉 35° 的最佳位置，並用院內廢棄物資製作第一代輕量擺位輔具。
+            </div>
+          </div>
+          <div class="year">
+            <b>112–113 年<br>2023–2024</b>
+            <div>
+              <strong>維持與精進期</strong><br>
+              納入科室正式 SOP，列為新進同仁核心訓練，透過跨年度資料持續監測。
+            </div>
+          </div>
+          <div class="year">
+            <b>114 年｜2025</b>
+            <div>
+              <strong>深化期：Knee Lat 綠色服務轉型</strong><br>
+              研發 120° 三角幾何定位輔具，導入種子放射師臨床查核機制。
+            </div>
+          </div>
+          <div class="year">
+            <b>115 年｜2026</b>
+            <div>
+              <strong>智慧擴散期</strong><br>
+              建置成果學習網頁、整理自製輔具與擺位知識；以既有 CNN 影像品質辨識成果規劃院內驗證。
+            </div>
+          </div>
+        </div>
+
+        <figure class="media">
+          <img src="https://lh3.googleusercontent.com/d/1Dbkv3n7nR5bmQPlvTRVmg02p27z50txz" alt="放射影像品質改善五年演進歷程資訊圖">
+          <figcaption>放射影像品質改善五年演進歷程。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 創新實務 -->
+    <section id="practice">
+      <div class="wrap">
+        <p class="eyebrow">GREEN INNOVATION</p>
+        <h2>以循環材料打造可複製的幾何輔具</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>35° Scapula Y-view 輔具</h3>
+            <p><strong>設計依據：</strong>CT 3D 影像重建顯示，患側軀幹旋轉 35° 可完整呈現肩胛骨體部。</p>
+            <p><strong>材料與改良：</strong>回收乾淨厚紙箱裁切黏貼；後續加入 5 cm 高密度回收保麗龍，提升穩定性與耐用性。</p>
+            <p><strong>臨床價值：</strong>提供明確的幾何支撐，降低經驗擺位的不確定性，材質亦不產生放射線屏蔽假影。</p>
+          </article>
+          <article class="card">
+            <h3>120° Knee Lat 三角定位器</h3>
+            <p><strong>設計依據：</strong>協助膝關節符合屈曲 20°–30° 與股骨內外髁重疊的照護標準。</p>
+            <p><strong>材料與改良：</strong>使用循環泡棉與紙箱製作，保留放射師因應病患狀況微調旋轉角度的空間。</p>
+            <p><strong>推動方式：</strong>檢查室統一配置，搭配種子放射師現場引導與影像回饋，提升操作一致性。</p>
+          </article>
+        </div>
+
+        <figure class="media photo">
+          <img src="https://lh3.googleusercontent.com/d/1Kbt6O9QQ78eSZKtCgxh4VJFwig0bPOpg" alt="自製三角幾何定位輔具實際運用於 Knee Lat 檢查">
+          <figcaption>自製三角幾何定位輔具的臨床運用情形。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 照護流程 -->
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">CARE FLOW</p>
+        <h2>從流程斷點，切入低碳照護</h2>
+
+        <figure class="media">
+          <img
+            src="https://lh3.googleusercontent.com/d/10vMl9Bfri0MfDIA1UD0E5ei6obm6HOkV"
+            alt="放射影像完整照護服務流程圖，包含擺位、X 光照射、影像品管與 PACS 判定"
+          >
+          <figcaption>放射影像完整照護服務流程；品質改善的核心介入區為檢查室擺位與照射後品管。</figcaption>
+        </figure>
+
+        <p>
+          過去的關鍵斷點在於「進入檢查室擺位」：缺乏客觀工具，容易導致影像不合格與重照。
+          團隊以輔具、標準化流程和教育訓練，從源頭降低擺位變異。
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>病患安全與體驗</h3>
+            <p>減少額外輻射暴露、重新擺位與等待；輕量柔軟的回收材料也降低關節受壓的不適。</p>
+          </article>
+          <article class="card">
+            <h3>流程效率與資源管理</h3>
+            <p>降低設備重複運作與部分清潔耗材使用，以零新增採購成本實踐精實循環。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 治理與未來 -->
+    <section id="governance">
+      <div class="wrap">
+        <p class="eyebrow">GOVERNANCE &amp; NEXT</p>
+        <h2>跨專業治理，穩健擴散</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>跨部門共同治理</h3>
+            <p>
+              由放射診斷科主任統籌資源與 ESG 方針；骨科醫師共同定義影像合格標準；
+              放射師負責數據管理、輔具設計、教育訓練與現場引導。
+            </p>
+            <p>
+              團隊能力自評由改善前 2.34 分提升至 3.17 分，
+              培育淨零意識、數據分析與創新設計的綠色人才。
+            </p>
+          </article>
+          <article class="card">
+            <h3>分階段智慧化規劃</h3>
+            <p>
+              <strong>中程（1–2 年）：</strong>擴增去識別化影像樣本，驗證 CNN 評分與人工判讀的一致性，
+              作為教育與品質監測輔助。
+            </p>
+            <p>
+              <strong>遠程（3 年以上）：</strong>在成效與資源條件成熟後，逐步擴展至其他高流量部位，
+              並評估與既有工作流程整合。
+            </p>
+          </article>
+        </div>
+
+        <p class="quote">
+          「科技、低碳、品質、共好」不是一次性投入，而是從臨床痛點出發、以數據驗證並內化為日常作業的持續轉型。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <p>衛生福利部彰化醫院｜放射診斷科</p>
+    <p>
+      資料來源：115 年衛生福利部所屬醫院永續發展與淨零競賽成果報告書。碳排推估參考
+      McAlister S, et al. (2022), <em>The carbon footprint of hospital diagnostic imaging in Australia</em>.
+    </p>
+  </footer>
+
+</body>
+</html>
