@@ -340,6 +340,22 @@
       max-width: 1120px;
     }
 
+    /* ── 點閱次數 ── */
+    .pageviews {
+      background: #0d2e29;
+      color: #a8d5bb;
+      text-align: center;
+      padding: 18px 24px;
+      font-size: .88rem;
+      letter-spacing: .04em;
+    }
+
+    .pageviews span {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
     /* ── RWD ── */
     @media (max-width: 720px) {
       .links {
@@ -378,7 +394,7 @@
   <!-- 導覽列 -->
   <nav class="nav">
     <div class="navin">
-      <a class="brand" href="#top">CHH・綠色放射影像</a>
+      <a class="brand" href="#top">CHHW・綠色放射影像</a>
       <div class="links">
         <a href="#results">成果數據</a>
         <a href="#practice">創新實務</a>
@@ -641,6 +657,11 @@
       McAlister S, et al. (2022), <em>The carbon footprint of hospital diagnostic imaging in Australia</em>.
     </p>
   </footer>
+
+  <!-- 點閱次數 -->
+  <div class="pageviews">
+    累計點閱次數：<span id="view-count">5</span> 次
+  </div>
 
 </body>
 </html>
