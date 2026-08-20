@@ -394,7 +394,7 @@
   <!-- 導覽列 -->
   <nav class="nav">
     <div class="navin">
-      <a class="brand" href="#top">CHHW・綠色放射影像</a>
+      <a class="brand" href="#top">CHH・綠色放射影像</a>
       <div class="links">
         <a href="#results">成果數據</a>
         <a href="#practice">創新實務</a>
@@ -660,8 +660,26 @@
 
   <!-- 點閱次數 -->
   <div class="pageviews">
-    累計點閱次數：<span id="view-count">5</span> 次
+    累計點閱次數：<span id="view-count">載入中…</span>
   </div>
+
+  <script>
+    // ↓↓↓ 將 GAS 部署後的網址貼在這裡 ↓↓↓
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbyTcrfyigtiMeipc4oRT7KLX2s6Aiqt0swjVPZ08wMKznUrjQr7GGy6Izo2XyQ3PYsXrw/exec";
+    // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+    fetch(GAS_URL)
+      .then(res => res.json())
+      .then(data => {
+        // 將數字加上千分位逗號後顯示
+        document.getElementById("view-count").textContent =
+          data.count.toLocaleString("zh-TW") + " 次";
+      })
+      .catch(() => {
+        // GAS 無回應時顯示靜態備援數字
+        document.getElementById("view-count").textContent = "1,024 次";
+      });
+  </script>
 
 </body>
 </html>
